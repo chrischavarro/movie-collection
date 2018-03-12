@@ -6,3 +6,5 @@ Redux
 React-Router-DOM
 History
 Axios
+Mongoose
+Redux-Thunk
