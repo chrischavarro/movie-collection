@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieForm from './MovieForm';
+import MoviePreview from './MoviePreview';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 
@@ -9,14 +10,16 @@ class AddMovie extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col">
-            "Add a new movie!"
+          <div className="col card-1">
+            <div className="addMovieHeader">
+              {"Enter Movie Info"}
+            </div>
             <MovieForm
               onSubmit={(data) => this.props.createMovie(data)}
             />
           </div>
           <div className="col">
-            Preview goes here!
+            <MoviePreview movie={this.props.preview} />
           </div>
         </div>
       </div>

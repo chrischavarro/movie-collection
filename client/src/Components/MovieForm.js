@@ -39,51 +39,60 @@ class MovieForm extends Component {
     return (
       <div className="container">
         <div className="row">
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Title:
+          <form onSubmit={this.handleSubmit} className="movieForm">
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
               <input type="text"
+                className="form-control"
                 name="title"
+                id="title"
                 value={title}
                 onChange={this.handleChange}
                 onBlur={() => this.props.getMoviePreview(title)}
               />
-            </label>
-            <br />
-            <label>
-              Genre:
+            </div>
+            <div className="form-group">
+              <label htmlFor="genre">Genre</label>
               <input type="text"
+                className="form-control"
                 name="genre"
+                id="genre"
                 value={genre}
                 onChange={this.handleChange}
               />
-            </label>
-            <br />
-            <label>
-              Actors:
+            </div>
+            <div className="form-group">
+            <label htmlFor="actors">Actors</label>
               <input type="text"
+                className="form-control"
                 name="actors"
+                id="actors"
                 value={actors}
                 onChange={this.handleChange}
               />
-            </label>
-            <br />
-            <label>
-              Year:
+            </div>
+            <div className="form-group">
+              <label htmlFor="year">Year</label>
               <input type="text"
+                className="form-control"
                 name="year"
+                id="year"
                 value={year}
                 onChange={this.handleChange}
               />
-            </label>
+            </div>
+              <label htmlFor="rating">Rating</label> <br />
+              <StarRatingComponent
+                className="stars"
+                id="rating"
+                name="rating"
+                starCount={5}
+                value={rating}
+                onStarClick={this.onStarClick.bind(this)}
+              />
+
             <br />
-            <StarRatingComponent
-              name="rating"
-              starCount={5}
-              value={rating}
-              onStarClick={this.onStarClick.bind(this)}
-            />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Add Movie" className="submitMovieButton"/>
           </form>
         </div>
       </div>
