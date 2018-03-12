@@ -5,6 +5,11 @@
   font-size: 3em;
 }
 
+a {
+  text-decoration: none!important;
+  color: #fff!important;
+}
+
 .card-1 {
   margin: 40px 0px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -104,14 +109,51 @@ body: {
 }
 
 /*  HOME PAGE STYLING */
+.homeAddMovie {
+  padding: 10px 30px;
+  border-radius: 4px;
+  font-size: 2em;
+  text-align: center;
+  display: block;
+  margin: auto;
+  border: 0;
+  background-color: #009688;
+  transition: all .2s;
+}
+
+.homeAddMovie:hover {
+  background-color: #00675b;
+}
+
 .homeMovieCard {
   text-align: center;
   font-size: 1.2em;
   margin: 10px;
+  max-width: 23%;
+  flex: 0 0 23%;
 }
 
 .homePosterImage {
   width: 150px;
   display: block;
   margin: auto;
+  padding: 15px 0px;
+}
+
+.homeMovieTitleYear {
+  font-weight: 700;
+}
+
+.homeMovieGenres {
+  font-weight: 500;
+}
+
+.homeMoviesActors {
+  font-weight: 400;
+  /* margin-bottom: 10px; */
+}
+
+.movieContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

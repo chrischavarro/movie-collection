@@ -13,7 +13,7 @@ class Home extends Component {
     if (this.props.movies && this.props.movies.length > 0) {
       return this.props.movies.map(movie => {
         return (
-          <MovieCard movie={movie} />
+          <MovieCard movie={movie} key={movie.title} />
         )
       })
     } else {
@@ -26,7 +26,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.movies)
     return (
       <div className="container">
         <div className="row">
@@ -36,14 +35,17 @@ class Home extends Component {
         </div>
         <div className="row">
           <div className="col">
-            <Link to="/new">
-              <button type="button" className="btn btn-primary addMovie">
-                Add New Movie
+              <button type="button" className="homeAddMovie">
+                <Link to="/new">
+                  Add New Movie
+                </Link>
               </button>
-            </Link>
           </div>
         </div>
-        <div className="row">
+        <div className="row movieContainer">
+          <div className="homeFilter">
+            {"Looking for a specific movie?"}
+          </div>
           {this.renderMovies()}
         </div>
       </div>
