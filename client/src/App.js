@@ -6,7 +6,7 @@ import history from './history';
 // import * as actions from './actions';
 
 import Home from './Components/Home';
-import MovieForm from './Components/MovieForm'
+import AddMovie from './Components/AddMovie'
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         <Router history={history}>
           <div>
             <Route exact path="/" component={Home} />
-            <Route path="/new" component={MovieForm} />
+            <Route path="/new" component={AddMovie} />
           </div>
         </Router>
       </div>

@@ -8,3 +8,5 @@ History
 Axios
 Mongoose
 Redux-Thunk
+StarRatingComponent
+Imdb-api
