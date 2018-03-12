@@ -5,16 +5,29 @@ import { connect } from 'react-redux';
 
 class AddMovie extends Component {
   render() {
+    console.log('Preview', this.props.preview)
     return (
       <div className="container">
         <div className="row">
-          "Add a new movie!"
-          <MovieForm
-            onSubmit={(data) => this.props.createMovie(data)}/>
+          <div className="col">
+            "Add a new movie!"
+            <MovieForm
+              onSubmit={(data) => this.props.createMovie(data)}
+            />
+          </div>
+          <div className="col">
+            Preview goes here!
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default connect(null, actions)(AddMovie);
+function mapStateToProps(state) {
+  return {
+    preview: state.movies
+  }
+}
+
+export default connect(mapStateToProps, actions)(AddMovie);

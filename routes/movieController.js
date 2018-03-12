@@ -6,12 +6,15 @@ movieController.get('/movies', (req, res) => {
 
 })
 
-movieController.post('/movies', (req, res) => {
-  console.log('BODY', req.body)
-  const { title, genre, actors, year, rating } = req.body;
+movieController.post('/movies/preview', (req, res) => {
+  // const { title, genre, actors, year, rating } = req.body;
+  const title = Object.keys(req.body).toString();
+  console.log('BODY', title)
+
   imdb.get(title, { apiKey: '566790ae' })
-    .then(res => {
-      console.log('IMDB RESPONSE', res)
+    .then(movie => {
+      console.log('IMDB RESPONSE', movie)
+      res.send({ data: movie })
     })
 })
 

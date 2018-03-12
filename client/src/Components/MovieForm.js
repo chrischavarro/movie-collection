@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class MovieForm extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class MovieForm extends Component {
   }
 
   render() {
-    const { rating } = this.state
+    const { rating, title, genre, actors, year } = this.state
     return (
       <div className="container">
         <div className="row">
@@ -42,8 +44,9 @@ class MovieForm extends Component {
               Title:
               <input type="text"
                 name="title"
-                value={this.state.title}
+                value={title}
                 onChange={this.handleChange}
+                onBlur={() => this.props.getMoviePreview(title)}
               />
             </label>
             <br />
@@ -51,7 +54,7 @@ class MovieForm extends Component {
               Genre:
               <input type="text"
                 name="genre"
-                value={this.state.genre}
+                value={genre}
                 onChange={this.handleChange}
               />
             </label>
@@ -60,7 +63,7 @@ class MovieForm extends Component {
               Actors:
               <input type="text"
                 name="actors"
-                value={this.state.actors}
+                value={actors}
                 onChange={this.handleChange}
               />
             </label>
@@ -69,7 +72,7 @@ class MovieForm extends Component {
               Year:
               <input type="text"
                 name="year"
-                value={this.state.year}
+                value={year}
                 onChange={this.handleChange}
               />
             </label>
@@ -88,4 +91,4 @@ class MovieForm extends Component {
   }
 }
 
-export default MovieForm;
+export default connect(null, actions)(MovieForm);
