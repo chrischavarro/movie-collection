@@ -8,10 +8,11 @@ class MovieForm extends Component {
     super(props);
     this.state = {
       title: '',
-      genre: '',
+      genres: '',
       actors: '',
       year: '',
-      rating: 0
+      userRating: 0,
+      poster: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,6 +47,7 @@ class MovieForm extends Component {
                 className="form-control"
                 name="title"
                 id="title"
+                placeholder="Enter title"
                 value={title}
                 onChange={this.handleChange}
                 onBlur={() => this.props.getMoviePreview(title)}
@@ -57,6 +59,7 @@ class MovieForm extends Component {
                 className="form-control"
                 name="genre"
                 id="genre"
+                placeholder="Enter genre(s), separated by a comma and space"
                 value={genre}
                 onChange={this.handleChange}
               />
@@ -67,6 +70,7 @@ class MovieForm extends Component {
                 className="form-control"
                 name="actors"
                 id="actors"
+                placeholder="Enter actor(s), separated by a comma and space"
                 value={actors}
                 onChange={this.handleChange}
               />
@@ -77,6 +81,7 @@ class MovieForm extends Component {
                 className="form-control"
                 name="year"
                 id="year"
+                placeholder="Enter year movie was released"
                 value={year}
                 onChange={this.handleChange}
               />
@@ -90,9 +95,8 @@ class MovieForm extends Component {
                 value={rating}
                 onStarClick={this.onStarClick.bind(this)}
               />
-
             <br />
-            <input type="submit" value="Add Movie" className="submitMovieButton"/>
+            <input type="submit" value="Add Movie" className="submitMovieButton" style={{ width: '100%' }}/>
           </form>
         </div>
       </div>

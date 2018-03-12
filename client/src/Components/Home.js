@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import * as actions from '../actions';
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.fetchMovies()
+  }
+
+  renderMovies() {
+    if (this.props.movies) {
+      return (
+        <div>Movies go here</div>
+      )
+    } else {
+      return (
+        <div>
+          {"You don't have any movies yet!"}
+        </div>
+      )
+    }
+  }
+
   render() {
+    console.log(this.props.movies)
     return (
       <div className="container">
         <div className="row">
@@ -18,10 +39,15 @@ class Home extends Component {
               </button>
             </Link>
           </div>
+          {this.renderMovies()}
         </div>
       </div>
     )
   }
 }
 
-export default Home;
+function mapStateToProps({ movies }) {
+  return { movies }
+}
+
+export default connect(mapStateToProps, actions)(Home);

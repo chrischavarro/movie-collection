@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 class AddMovie extends Component {
   render() {
-    console.log('Preview', this.props.preview)
     return (
       <div className="container">
         <div className="row">

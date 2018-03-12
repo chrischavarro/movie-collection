@@ -4,10 +4,16 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const app = express();
-const movieController = require('./routes/movieController');
+
 mongoose.connect('mongodb://localhost/movie-collection');
+mongoose.connection.on('connected', function() {
+  console.log('Mongoose default connection open')
+})
+mongoose.connection.on('error', function(err) {
+  console.log('Mongoose default conection error', err)
+})
+const movieController = require('./routes/movieController');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
