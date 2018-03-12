@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import * as actions from '../actions';
+import MovieCard from './MovieCard';
 
 class Home extends Component {
   componentDidMount() {
@@ -9,10 +10,12 @@ class Home extends Component {
   }
 
   renderMovies() {
-    if (this.props.movies) {
-      return (
-        <div>Movies go here</div>
-      )
+    if (this.props.movies && this.props.movies.length > 0) {
+      return this.props.movies.map(movie => {
+        return (
+          <MovieCard movie={movie} />
+        )
+      })
     } else {
       return (
         <div>
@@ -39,6 +42,8 @@ class Home extends Component {
               </button>
             </Link>
           </div>
+        </div>
+        <div className="row">
           {this.renderMovies()}
         </div>
       </div>

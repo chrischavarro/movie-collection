@@ -102,3 +102,16 @@ body: {
   font-size: 1.4em;
   font-weight: 700;
 }
+
+/*  HOME PAGE STYLING */
+.homeMovieCard {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.homePosterImage {
+  width: 150px;
+  display: block;
+  margin: auto;
+}

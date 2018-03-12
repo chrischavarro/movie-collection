@@ -21,7 +21,7 @@ class MoviePreview extends Component {
   }
 
   renderSuggestion() {
-    if (this.props.movie) {
+    if (this.props.movie.data) {
       const { title, year, actors, poster, genres } = this.props.movie.data,
       { rating } = this.state
       return (
