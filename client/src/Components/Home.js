@@ -44,58 +44,47 @@ class Home extends Component {
     }
   }
 
+  renderFilter(filter, arr) {
+    return (
+      <div className="dropdown col">
+      <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        By {filter}
+      </button>
+      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {this.renderDropdownOptions(arr)}
+      </div>
+    </div>
+    )
+  }
+
   getGenres() {
     if (this.props.movies && this.props.movies.length > 0) {
       let genre = 'genres',
-      genreArr = this.populateArray(genre)
-      return (
-        <div className="dropdown col">
-        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          By Genre
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {this.renderDropdownOptions(genreArr)}
-        </div>
-      </div>
-      )
+      genreArr = this.populateArray(genre),
+      title = 'Genre';
+      return this.renderFilter(title, genreArr)
     }
   }
 
   getActors() {
     if (this.props.movies && this.props.movies.length > 0) {
-      let actors = 'actors';
-      let actorArr = this.populateArray(actors)
-      return (
-        <div className="dropdown col">
-        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          By Actor/Actress
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {this.renderDropdownOptions(actorArr)}
-        </div>
-      </div>
-      )
+      let actors = 'actors',
+      actorArr = this.populateArray(actors),
+      title="Actor/Actress"
+      return this.renderFilter(title, actorArr)
     }
   }
 
   getYears() {
     if (this.props.movies && this.props.movies.length > 0) {
-      let yearArr = []
+      let yearArr = [],
+      title="Years"
       this.props.movies.forEach(movie => {
         if (yearArr.indexOf(movie.year) === -1) {
           yearArr.push(movie.year)
         }
       })
-      return (
-        <div className="dropdown col">
-        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          By Year
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {this.renderDropdownOptions(yearArr)}
-        </div>
-      </div>
-      )
+      return this.renderFilter(title, yearArr)
     }
   }
 
