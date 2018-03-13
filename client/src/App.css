@@ -3,6 +3,7 @@
 .header {
   text-align: center;
   font-size: 3em;
+  margin-bottom: 10px;
 }
 
 a {
@@ -158,6 +159,21 @@ body: {
   margin-bottom: 20px;
 }
 
+.filterHeader {
+  font-size: 2em;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.filterContainer {
+  padding: 20px 15px;
+  margin-top: 20px!important;
+}
+
+.dropdown {
+  padding-left: 0px!important
+}
+
 .dropdown-toggle {
   width: 100%;
 }
@@ -186,4 +202,9 @@ body: {
 
 .dropdown-item {
   color: #000!important;
+}
+
+.noMoviesFound {
+  text-align: center;
+  font-size: 2em;
 }

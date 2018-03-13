@@ -6,8 +6,7 @@ const Movie = require('../models/Movie');
 movieController.get('/movies', (req, res) => {
   Movie.find()
     .exec((err, movies) => {
-      if (err) { return console.log('Somthing went wrong', err) }
-      if (!movies) { return res.send({}) }
+      if (err || !movies) { res.status(200).send([]) }
       res.send(movies)
     })
 })
@@ -38,14 +37,12 @@ movieController.get('/movies/genre/:genre', (req, res) => {
   })
   .exec((err, movies) => {
     if (err || !movies) { res.status(200).send([]) }
-    console.log('RELEVANT MOVIES', movies)
     res.status(200).send(movies);
   })
 })
 
 movieController.get('/movies/rating/:rating', (req, res) => {
   const { rating } = req.params;
-  console.log('RATING', rating)
   Movie.find({ userRating: { $eq: rating } })
     .exec((err, movies) => {
       if (err || !movies) { res.status(200).send([]) }
@@ -75,7 +72,6 @@ movieController.post('/movies/preview', (req, res) => {
   const title = Object.keys(req.body).toString();
   imdb.get(title, { apiKey: '566790ae' })
     .then(movie => {
-      // console.log('IMDB RESPONSE', movie)
       res.send({ data: movie })
     })
 })

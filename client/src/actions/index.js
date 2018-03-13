@@ -1,6 +1,6 @@
 import axios from 'axios';
 import history from '../history'
-import { FETCH_MOVIES, CREATE_MOVIE, GET_PREVIEW, FILTER_BY_GENRE, FILTER_BY_RATING,
+import { FETCH_MOVIES, GET_PREVIEW, FILTER_BY_GENRE, FILTER_BY_RATING,
   FILTER_BY_ACTOR, FILTER_BY_YEAR, FILTER_BY_TITLE } from './types';
 
 export const fetchMovies = () => async dispatch => {

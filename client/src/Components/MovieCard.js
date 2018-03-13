@@ -7,7 +7,7 @@ class MovieCard extends Component {
     return (
       <div className="card-1 homeMovieCard col-3">
         <div>
-          <img src={poster} className="homePosterImage" />
+          <img src={poster} className="homePosterImage" alt={title} />
         </div>
         <div className="homeMovieTitleYear">{title} - {year}</div>
         <div className="homeMovieGenres">{genres.join(', ')}</div>

@@ -66,7 +66,7 @@ class Home extends Component {
 
   renderFilter(filter, arr) {
     return (
-      <div className="dropdown col-2">
+      <div className="dropdown col-2" key={filter}>
       <button className="btn btn-secondary dropdown-toggle filterButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         By {filter.charAt(0).toUpperCase() + filter.slice(1)}
       </button>
@@ -135,7 +135,7 @@ class Home extends Component {
       })
     } else {
       return (
-        <div>
+        <div className="noMoviesFound col">
           {"You don't have any movies yet!"}
         </div>
       )
@@ -147,7 +147,7 @@ class Home extends Component {
       <div className="container">
         <div className="row">
           <div className="header col">
-            Welcome to Movie Collection!
+            Welcome to KindFlix!
           </div>
         </div>
         <div className="row">
@@ -159,7 +159,12 @@ class Home extends Component {
               </button>
           </div>
         </div>
-        <div className="row">
+        <div className="row filterHeader">
+          <div className="col">
+            {"Or find an existing movie..."}
+          </div>
+        </div>
+        <div className="row card-1 filterContainer">
           {this.getTitles()}
           {this.renderGenresAndActors()}
           {this.getYears()}

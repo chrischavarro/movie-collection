@@ -1,12 +1,1 @@
 3/12/2018 12:50 PM
-
-Packages installed:
-React Redux
-Redux
-React-Router-DOM
-History
-Axios
-Mongoose
-Redux-Thunk
-StarRatingComponent
-Imdb-api

@@ -21,12 +21,12 @@ class MoviePreview extends Component {
   }
 
   renderSuggestion() {
-    if (this.props.movie.data) {
+    if (this.props.movie && this.props.movie.data) {
       const { title, year, actors, poster, genres } = this.props.movie.data,
       { rating } = this.state
       return (
         <div className="suggestionContent">
-          <div><img src={poster} className="suggestionPoster"/></div>
+          <div><img src={poster} className="suggestionPoster" alt={title}/></div>
           <div className="suggestionTitleYear">{title} - {year}</div>
           <div className="suggestionGenre">{genres}</div>
           <div className="suggestionActors">{actors}</div>
