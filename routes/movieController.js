@@ -70,8 +70,10 @@ movieController.get('/movies/year/:year', (req, res) => {
 
 movieController.post('/movies/preview', (req, res) => {
   const title = Object.keys(req.body).toString();
+  console.log('TITLE', title)
   imdb.get(title, { apiKey: '566790ae' })
     .then(movie => {
+      console.log('MOVIE', movie)
       res.send({ data: movie })
     })
 })

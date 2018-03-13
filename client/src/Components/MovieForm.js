@@ -47,7 +47,7 @@ class MovieForm extends Component {
             value={this.state.value}
             placeholder={`Enter ${Object.values(value).toString()}`}
             onChange={this.handleChange}
-            onBlur={() => this.props.getMoviePreview(Object.keys(value).toString())}
+            onBlur={() => this.props.getMoviePreview(this.state[Object.keys(value).toString()])}
             key={Object.keys(value).toString()}
           />
         )
