@@ -158,6 +158,32 @@ body: {
   margin-bottom: 20px;
 }
 
+.dropdown-toggle {
+  width: 100%;
+}
+
+.homeFilter {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.filterButton {
+  background-color: #009688;
+}
+
+.filterButton:hover {
+  background-color: #00675b;
+}
+
+.resetFilters {
+  background-color: #e91e63;
+  border: 0;
+}
+
+.resetFilters:hover {
+  background-color: #C2185B;
+}
+
 .dropdown-item {
   color: #000!important;
 }

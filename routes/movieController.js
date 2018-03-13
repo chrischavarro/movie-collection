@@ -18,10 +18,6 @@ movieController.post('/movies', (req, res) => {
   actors = actors.split(", ");
   Movie.find({ "title" : title })
     .exec((err, movie) => {
-      // if (movie) {
-      //   console.log('movie already exists', movie)
-      //   return res.send('Already exists!')
-      // }
       let newMovie = new Movie({
         title,
         genres,
@@ -31,8 +27,47 @@ movieController.post('/movies', (req, res) => {
         poster
       })
       newMovie.save()
-      console.log('SAVED', newMovie)
-      res.status(200).send('Saved new movie')
+      res.status(200).send('Saved new movie');
+    })
+})
+
+movieController.get('/movies/genre/:genre', (req, res) => {
+  const { genre } = req.params;
+  Movie.find({
+    genres: genre
+  })
+  .exec((err, movies) => {
+    if (err || !movies) { res.status(200).send([]) }
+    console.log('RELEVANT MOVIES', movies)
+    res.status(200).send(movies);
+  })
+})
+
+movieController.get('/movies/rating/:rating', (req, res) => {
+  const { rating } = req.params;
+  console.log('RATING', rating)
+  Movie.find({ userRating: { $eq: rating } })
+    .exec((err, movies) => {
+      if (err || !movies) { res.status(200).send([]) }
+      res.status(200).send(movies);
+    })
+})
+
+movieController.get('/movies/actor/:actor', (req, res) => {
+  const { actor } = req.params;
+  Movie.find({ actors: actor })
+    .exec((err, movies) => {
+      if (err || !movies) { res.status(200).send([]) }
+      res.status(200).send(movies);
+    })
+})
+
+movieController.get('/movies/year/:year', (req, res) => {
+  const { year } = req.params;
+  Movie.find({ year: year })
+    .exec((err, movies) => {
+      if (err || !movies) { res.status(200).send([]) }
+      res.status(200).send(movies);
     })
 })
 
