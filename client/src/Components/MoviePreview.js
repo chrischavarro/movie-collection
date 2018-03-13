@@ -51,7 +51,7 @@ class MoviePreview extends Component {
         <div>
           <div className="moviePreviewHeader">
             {"Don't know all the details?"} <br />
-            {"Just enter the title and we'll handle the rest!"}
+            {"Just enter the title, move on to genres, and we'll handle the rest!"}
           </div>
         </div>
       )
