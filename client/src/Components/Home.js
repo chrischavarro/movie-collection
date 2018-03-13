@@ -45,10 +45,11 @@ class Home extends Component {
   }
 
   renderFilter(filter, arr) {
+    console.log('called', filter, arr)
     return (
       <div className="dropdown col">
       <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        By {filter}
+        By {filter.charAt(0).toUpperCase() + filter.slice(1)}
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         {this.renderDropdownOptions(arr)}
@@ -57,21 +58,16 @@ class Home extends Component {
     )
   }
 
-  getGenres() {
+  renderGenresAndActors() {
     if (this.props.movies && this.props.movies.length > 0) {
-      let genre = 'genres',
-      genreArr = this.populateArray(genre),
-      title = 'Genre';
-      return this.renderFilter(title, genreArr)
-    }
-  }
 
-  getActors() {
-    if (this.props.movies && this.props.movies.length > 0) {
-      let actors = 'actors',
-      actorArr = this.populateArray(actors),
-      title="Actor/Actress"
-      return this.renderFilter(title, actorArr)
+      let filters = ['genres', 'actors']
+      return filters.map(filter => {
+        let title = filter,
+        arr = this.populateArray(filter)
+
+        return this.renderFilter(title, arr)
+      })
     }
   }
 
@@ -101,7 +97,6 @@ class Home extends Component {
     )
   }
 
-
   renderMovies() {
     if (this.props.movies && this.props.movies.length > 0) {
       return this.props.movies.map(movie => {
@@ -119,7 +114,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.movies)
     return (
       <div className="container">
         <div className="row">
@@ -140,8 +134,7 @@ class Home extends Component {
           <div className="homeFilter">
             {"Find a specific movie: "}
           </div>
-          {this.getGenres()}
-          {this.getActors()}
+          {this.renderGenresAndActors()}
           {this.getYears()}
           {this.getRatings()}
         </div>
