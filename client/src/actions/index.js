@@ -39,6 +39,5 @@ export const filterByYear = (year) => async dispatch => {
 }
 
 export const filterByTitle = (title) => async dispatch => {
-  // const res = await axios.get(`/api/movies/title/${title}`)
   dispatch({ type: FILTER_BY_TITLE, payload: title })
 }
