@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import './App.css';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import history from './history';
 // import * as actions from './actions';
 

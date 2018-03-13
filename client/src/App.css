@@ -157,3 +157,7 @@ body: {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.dropdown-item {
+  color: #000!important;
+}
